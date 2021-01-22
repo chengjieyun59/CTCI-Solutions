@@ -1,5 +1,6 @@
 /**
- * O(n) time, O(n) space. Decide if the two strings are permutation of each other.
+ * Decide if the two strings are permutation of each other.
+ * O(n) time, O(n) space.
  * Save all character counts from string 1
  * If string 2 has the same character, decrement the count for that character
  * Only if count of all characters are 0, return true
@@ -17,6 +18,12 @@ const checkPermutation = (s1, s2) => {
     count[c] -= 1
   }
   return Object.values(count).filter(v => v !== 0).length === 0
+}
+
+// O(nlogn) time
+const checkPermutation = (s1, s2) => {
+  if (s1.length !== s2.length) return false
+  return s1.split('').sort().join('') === s2.split('').sort().join('')
 }
 
 console.log(checkPermutation("abedc", "dbace")) // true

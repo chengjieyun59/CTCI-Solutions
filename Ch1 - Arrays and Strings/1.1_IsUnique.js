@@ -15,6 +15,17 @@ const isUnique = string => {
   return true
 }
 
+// O(nlogn) time, O(n) space.
+const isUnique = string => {
+  const sorted = string.split('')
+  for (let i = 1; i < sorted.length; i += 1) {
+    if (sorted[i] === sorted[i - 1]) {
+      return false
+    }
+  }
+  return true
+}
+
 // O(n^2) time, O(1) space. No additional data structure
 const isUnique = string => {
   for (let i = 0; i < string.length - 1; i += 1) {
